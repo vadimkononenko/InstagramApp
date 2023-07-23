@@ -19,6 +19,8 @@
 		A774304F2A6A7F8800124F31 /* ImageSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774304E2A6A7F8800124F31 /* ImageSelectorViewController.swift */; };
 		A77430512A6A7F9600124F31 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77430502A6A7F9600124F31 /* NotificationViewController.swift */; };
 		A77430532A6A7FA100124F31 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77430522A6A7FA100124F31 /* ProfileViewController.swift */; };
+		A78E34FA2A6CF61B001177B0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78E34F92A6CF61B001177B0 /* CustomTextField.swift */; };
+		A78E34FC2A6CF7A1001177B0 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78E34FB2A6CF7A1001177B0 /* Extentions.swift */; };
 		A7D5AF182A6BE405000338BE /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D5AF172A6BE405000338BE /* FeedCell.swift */; };
 		C8FE111D68369F67F4DC02FA /* Pods_InstagramApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F3DF9C1482927CB16DEFA8 /* Pods_InstagramApp.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +43,8 @@
 		A774304E2A6A7F8800124F31 /* ImageSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorViewController.swift; sourceTree = "<group>"; };
 		A77430502A6A7F9600124F31 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		A77430522A6A7FA100124F31 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A78E34F92A6CF61B001177B0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		A78E34FB2A6CF7A1001177B0 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		A7D5AF172A6BE405000338BE /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +116,7 @@
 		A77430422A6A7E4B00124F31 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A78E34FB2A6CF7A1001177B0 /* Extentions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				A7D5AF172A6BE405000338BE /* FeedCell.swift */,
+				A78E34F92A6CF61B001177B0 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -290,6 +296,8 @@
 				A774304B2A6A7F6E00124F31 /* FeedViewController.swift in Sources */,
 				A77430312A6A7DFB00124F31 /* SceneDelegate.swift in Sources */,
 				A77430532A6A7FA100124F31 /* ProfileViewController.swift in Sources */,
+				A78E34FC2A6CF7A1001177B0 /* Extentions.swift in Sources */,
+				A78E34FA2A6CF61B001177B0 /* CustomTextField.swift in Sources */,
 				A774304F2A6A7F8800124F31 /* ImageSelectorViewController.swift in Sources */,
 				A70EEC752A6BF8A000E120CF /* LoginViewController.swift in Sources */,
 				A7D5AF182A6BE405000338BE /* FeedCell.swift in Sources */,
