@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A70EEC752A6BF8A000E120CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70EEC742A6BF8A000E120CF /* LoginViewController.swift */; };
+		A70EEC772A6BF8AF00E120CF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70EEC762A6BF8AF00E120CF /* RegistrationViewController.swift */; };
 		A774302F2A6A7DFB00124F31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774302E2A6A7DFB00124F31 /* AppDelegate.swift */; };
 		A77430312A6A7DFB00124F31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77430302A6A7DFB00124F31 /* SceneDelegate.swift */; };
 		A77430382A6A7DFB00124F31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77430372A6A7DFB00124F31 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 		5086137D0EF9173111208226 /* Pods-InstagramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramApp.release.xcconfig"; path = "Target Support Files/Pods-InstagramApp/Pods-InstagramApp.release.xcconfig"; sourceTree = "<group>"; };
 		8C422D45B1232B59E93C24C4 /* Pods-InstagramApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramApp.debug.xcconfig"; path = "Target Support Files/Pods-InstagramApp/Pods-InstagramApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A3F3DF9C1482927CB16DEFA8 /* Pods_InstagramApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A70EEC742A6BF8A000E120CF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A70EEC762A6BF8AF00E120CF /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		A774302B2A6A7DFB00124F31 /* InstagramApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A774302E2A6A7DFB00124F31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A77430302A6A7DFB00124F31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,15 @@
 				A3F3DF9C1482927CB16DEFA8 /* Pods_InstagramApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A70EEC732A6BF84C00E120CF /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				A70EEC742A6BF8A000E120CF /* LoginViewController.swift */,
+				A70EEC762A6BF8AF00E120CF /* RegistrationViewController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		A77430222A6A7DFB00124F31 = {
@@ -113,6 +126,7 @@
 		A77430442A6A7E4F00124F31 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A70EEC732A6BF84C00E120CF /* Authentication */,
 				A77430482A6A7EB300124F31 /* MainViewController.swift */,
 				A774304A2A6A7F6E00124F31 /* FeedViewController.swift */,
 				A774304C2A6A7F7C00124F31 /* SearchViewController.swift */,
@@ -271,11 +285,13 @@
 				A774304D2A6A7F7C00124F31 /* SearchViewController.swift in Sources */,
 				A77430492A6A7EB300124F31 /* MainViewController.swift in Sources */,
 				A774302F2A6A7DFB00124F31 /* AppDelegate.swift in Sources */,
+				A70EEC772A6BF8AF00E120CF /* RegistrationViewController.swift in Sources */,
 				A77430512A6A7F9600124F31 /* NotificationViewController.swift in Sources */,
 				A774304B2A6A7F6E00124F31 /* FeedViewController.swift in Sources */,
 				A77430312A6A7DFB00124F31 /* SceneDelegate.swift in Sources */,
 				A77430532A6A7FA100124F31 /* ProfileViewController.swift in Sources */,
 				A774304F2A6A7F8800124F31 /* ImageSelectorViewController.swift in Sources */,
+				A70EEC752A6BF8A000E120CF /* LoginViewController.swift in Sources */,
 				A7D5AF182A6BE405000338BE /* FeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
