@@ -21,6 +21,7 @@
 		A77430532A6A7FA100124F31 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77430522A6A7FA100124F31 /* ProfileViewController.swift */; };
 		A78E34FA2A6CF61B001177B0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78E34F92A6CF61B001177B0 /* CustomTextField.swift */; };
 		A78E34FC2A6CF7A1001177B0 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78E34FB2A6CF7A1001177B0 /* Extentions.swift */; };
+		A78E34FE2A6D9A78001177B0 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78E34FD2A6D9A78001177B0 /* AuthenticationViewModel.swift */; };
 		A7D5AF182A6BE405000338BE /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D5AF172A6BE405000338BE /* FeedCell.swift */; };
 		C8FE111D68369F67F4DC02FA /* Pods_InstagramApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F3DF9C1482927CB16DEFA8 /* Pods_InstagramApp.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		A77430522A6A7FA100124F31 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A78E34F92A6CF61B001177B0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A78E34FB2A6CF7A1001177B0 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		A78E34FD2A6D9A78001177B0 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		A7D5AF172A6BE405000338BE /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 		A77430452A6A7E5100124F31 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A78E34FD2A6D9A78001177B0 /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			files = (
 				A774304D2A6A7F7C00124F31 /* SearchViewController.swift in Sources */,
 				A77430492A6A7EB300124F31 /* MainViewController.swift in Sources */,
+				A78E34FE2A6D9A78001177B0 /* AuthenticationViewModel.swift in Sources */,
 				A774302F2A6A7DFB00124F31 /* AppDelegate.swift in Sources */,
 				A70EEC772A6BF8AF00E120CF /* RegistrationViewController.swift in Sources */,
 				A77430512A6A7F9600124F31 /* NotificationViewController.swift in Sources */,

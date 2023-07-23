@@ -12,12 +12,7 @@ class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let gradient: CAGradientLayer = {
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
-        gradient.locations = [0, 1]
-        return gradient
-    }()
+    private var viewModel = LoginViewModel()
     
     private let iconImageView: UIImageView = {
         let iv = UIImageView()
@@ -41,10 +36,11 @@ class LoginViewController: UIViewController {
     private lazy var loginBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Log In", for: .normal)
-        btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        btn.setTitleColor(UIColor(white: 1, alpha: 0.67), for: .normal)
+        btn.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1).withAlphaComponent(0.5)
         btn.layer.cornerRadius = 5
         btn.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        btn.isEnabled = false
         return btn
     }()
     
@@ -66,6 +62,7 @@ class LoginViewController: UIViewController {
     private lazy var dontHaveAccountBtn: UIButton = {
         let btn = UIButton(type: .system)
         btn.attributedTitle(firstPart: "Don't have an account?", secondPart: "Sign Up")
+        btn.addTarget(self, action: #selector(handleShowSignIn), for: .touchUpInside)
         return btn
     }()
     
@@ -75,9 +72,40 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         configure()
+        configureNotificationObservers()
     }
+    
+    // MARK: - Actions
+    
+    @objc private func handleShowSignIn() {
+        let controller = RegistrationViewController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @objc private func textDidChanged(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
+        }
+        
+        UIView.animate(withDuration: 0.2) {
+            self.loginBtn.backgroundColor = self.viewModel.buttonBackgroundColor
+            self.loginBtn.setTitleColor(self.viewModel.buttonTitleColor, for: .normal)
+            self.loginBtn.isEnabled = self.viewModel.formIsValid
+        }
+    }
+    
+    // MARK: - Helpers
 
+    private func configureNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(textDidChanged), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChanged), for: .editingChanged)
+    }
+    
 }
+
+// MARK: - Configure
 
 extension LoginViewController {
     
@@ -90,8 +118,7 @@ extension LoginViewController {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
         
-        gradient.frame = view.frame
-        view.layer.addSublayer(gradient)
+        configureGradientLayer()
         
         view.addSubview(iconImageView)
         
