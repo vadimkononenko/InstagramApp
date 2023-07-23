@@ -12,6 +12,8 @@ class RegistrationViewController: UIViewController {
 
     // MARK: - Properties
     
+    private var viewModel = RegistrationViewModel()
+    
     private lazy var plusPhotoBtn: UIButton = {
         let btn = UIButton(type: .system)
         btn.setImage(UIImage(named: "plus_photo"), for: .normal)
@@ -37,10 +39,11 @@ class RegistrationViewController: UIViewController {
     private lazy var signInBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Sign In", for: .normal)
-        btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        btn.setTitleColor(UIColor(white: 1, alpha: 0.67), for: .normal)
+        btn.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1).withAlphaComponent(0.5)
         btn.layer.cornerRadius = 5
         btn.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        btn.isEnabled = false
         return btn
     }()
     
@@ -66,12 +69,36 @@ class RegistrationViewController: UIViewController {
         super.viewDidLoad()
 
         configure()
+        configureNotificationObservers()
     }
     
     // MARK: - Actions
     
     @objc private func handleShowLogin() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func textDidChanged(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else if sender == passwordTextField {
+            viewModel.password = sender.text
+        } else if sender == fullnameTextField {
+            viewModel.fullname = sender.text
+        } else {
+            viewModel.username = sender.text
+        }
+        
+        updateForm()
+    }
+    
+    // MARK: - Helpers
+
+    private func configureNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(textDidChanged), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChanged), for: .editingChanged)
+        fullnameTextField.addTarget(self, action: #selector(textDidChanged), for: .editingChanged)
+        usernameTextField.addTarget(self, action: #selector(textDidChanged), for: .editingChanged)
     }
 
 }
@@ -139,4 +166,16 @@ extension RegistrationViewController {
         }
     }
     
+}
+
+// MARK: - FormViewModel
+
+extension RegistrationViewController: FormViewModel {
+    func updateForm() {
+        UIView.animate(withDuration: 0.2) {
+            self.signInBtn.backgroundColor = self.viewModel.buttonBackgroundColor
+            self.signInBtn.setTitleColor(self.viewModel.buttonTitleColor, for: .normal)
+            self.signInBtn.isEnabled = self.viewModel.formIsValid
+        }
+    }
 }

@@ -89,11 +89,7 @@ class LoginViewController: UIViewController {
             viewModel.password = sender.text
         }
         
-        UIView.animate(withDuration: 0.2) {
-            self.loginBtn.backgroundColor = self.viewModel.buttonBackgroundColor
-            self.loginBtn.setTitleColor(self.viewModel.buttonTitleColor, for: .normal)
-            self.loginBtn.isEnabled = self.viewModel.formIsValid
-        }
+        updateForm()
     }
     
     // MARK: - Helpers
@@ -163,4 +159,16 @@ extension LoginViewController {
         }
     }
     
+}
+
+// MARK: - FormViewModel
+
+extension LoginViewController: FormViewModel {
+    func updateForm() {
+        UIView.animate(withDuration: 0.2) {
+            self.loginBtn.backgroundColor = self.viewModel.buttonBackgroundColor
+            self.loginBtn.setTitleColor(self.viewModel.buttonTitleColor, for: .normal)
+            self.loginBtn.isEnabled = self.viewModel.formIsValid
+        }
+    }
 }
