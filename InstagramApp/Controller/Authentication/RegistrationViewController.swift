@@ -18,6 +18,7 @@ class RegistrationViewController: UIViewController {
         let btn = UIButton(type: .system)
         btn.setImage(UIImage(named: "plus_photo"), for: .normal)
         btn.tintColor = .white
+        btn.addTarget(self, action: #selector(handleProfilePhotoSelect), for: .touchUpInside)
         return btn
     }()
     
@@ -90,6 +91,14 @@ class RegistrationViewController: UIViewController {
         }
         
         updateForm()
+    }
+    
+    @objc private func handleProfilePhotoSelect() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        present(picker, animated: true)
     }
     
     // MARK: - Helpers
@@ -178,4 +187,20 @@ extension RegistrationViewController: FormViewModel {
             self.signInBtn.isEnabled = self.viewModel.formIsValid
         }
     }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.editedImage] as? UIImage else { return }
+        
+        plusPhotoBtn.layer.cornerRadius = plusPhotoBtn.frame.width / 2
+        plusPhotoBtn.layer.masksToBounds = true
+        plusPhotoBtn.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        self.dismiss(animated: true)
+    }
+    
 }
