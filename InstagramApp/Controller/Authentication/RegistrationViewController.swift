@@ -98,7 +98,7 @@ class RegistrationViewController: UIViewController {
                 return
             }
             
-            print("DEBUG: Successfuly registered user with credentials!")
+            self.dismiss(animated: true)
         }
     }
     

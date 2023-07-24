@@ -41,6 +41,7 @@ class LoginViewController: UIViewController {
         btn.layer.cornerRadius = 5
         btn.titleLabel?.font = .boldSystemFont(ofSize: 20)
         btn.isEnabled = false
+        btn.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return btn
     }()
     
@@ -90,6 +91,21 @@ class LoginViewController: UIViewController {
         }
         
         updateForm()
+    }
+    
+    @objc private func handleLogin() {
+        guard
+            let email = emailTextField.text,
+            let password = passwordTextField.text
+        else { return }
+        AuthService.logUserIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEBUG: Failed to log user in \(error.localizedDescription)")
+                return
+            }
+            
+            self.dismiss(animated: true)
+        }
     }
     
     // MARK: - Helpers
