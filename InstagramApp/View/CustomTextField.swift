@@ -27,6 +27,8 @@ class CustomTextField: UITextField {
         backgroundColor = UIColor(white: 1, alpha: 0.1)
         attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.7)])
         layer.cornerRadius = 5
+        autocapitalizationType = .none
+        autocorrectionType = .no
     }
     
     required init?(coder: NSCoder) {

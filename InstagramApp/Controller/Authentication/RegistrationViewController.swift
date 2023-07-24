@@ -13,6 +13,7 @@ class RegistrationViewController: UIViewController {
     // MARK: - Properties
     
     private var viewModel = RegistrationViewModel()
+    private var profileImage: UIImage?
     
     private lazy var plusPhotoBtn: UIButton = {
         let btn = UIButton(type: .system)
@@ -45,6 +46,7 @@ class RegistrationViewController: UIViewController {
         btn.layer.cornerRadius = 5
         btn.titleLabel?.font = .boldSystemFont(ofSize: 20)
         btn.isEnabled = false
+        btn.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         return btn
     }()
     
@@ -74,6 +76,31 @@ class RegistrationViewController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    @objc private func handleSignUp() {
+        guard
+            let email = emailTextField.text,
+            let password = passwordTextField.text,
+            let fullname = fullnameTextField.text,
+            let username = usernameTextField.text,
+            let profileImage = profileImage
+        else { return }
+        
+        let credentials = AuthCredentials(email: email,
+                                          password: password,
+                                          fullname: fullname,
+                                          username: username,
+                                          profileImage: profileImage)
+        
+        AuthService.registerUser(withCredentials: credentials) { error in
+            if let error = error {
+                print("DEBUG: Failed to register user \(error.localizedDescription)")
+                return
+            }
+            
+            print("DEBUG: Successfuly registered user with credentials!")
+        }
+    }
     
     @objc private func handleShowLogin() {
         navigationController?.popViewController(animated: true)
@@ -195,6 +222,7 @@ extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
+        profileImage = selectedImage
         
         plusPhotoBtn.layer.cornerRadius = plusPhotoBtn.frame.width / 2
         plusPhotoBtn.layer.masksToBounds = true
