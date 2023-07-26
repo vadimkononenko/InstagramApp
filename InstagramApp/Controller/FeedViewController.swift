@@ -43,7 +43,7 @@ class FeedViewController: UICollectionViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         
-        title = "Feed"
+        navigationItem.title = "Feed"
     }
 
 }
