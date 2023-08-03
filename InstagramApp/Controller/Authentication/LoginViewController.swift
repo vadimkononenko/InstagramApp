@@ -8,11 +8,16 @@
 import UIKit
 import SnapKit
 
+protocol AuthenticationDelegate: AnyObject {
+    func authenticationDidComplete()
+}
+
 class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
     private var viewModel = LoginViewModel()
+    weak var delegate: AuthenticationDelegate?
     
     private let iconImageView: UIImageView = {
         let iv = UIImageView()
@@ -80,6 +85,7 @@ class LoginViewController: UIViewController {
     
     @objc private func handleShowSignIn() {
         let controller = RegistrationViewController()
+        controller.delegate = delegate
         navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -104,7 +110,7 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            self.dismiss(animated: true)
+            self.delegate?.authenticationDidComplete()
         }
     }
     
